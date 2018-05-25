@@ -8,7 +8,7 @@ templates = list(map(tm.get_template,templates))
 while True:
     frame = get_screen()
     matches = [tm.get_matching(template,frame) for template in templates]
-    if (True if any(any(len(i)>0 for i in j) for j in matches) else False):
+    if any(any(len(i)>0 for i in j) for j in matches):
         for template,match in zip(templates,matches):
 
             tm.rectlize(match, frame,template)
